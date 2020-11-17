@@ -8,3 +8,15 @@ table, th, td {
 td, th {
     padding: 3px;
 }
+
+p, ul, ol, table {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
