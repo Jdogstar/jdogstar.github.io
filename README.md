@@ -12,3 +12,5 @@ A project for class
 5. Sticky nav menu
 
 6. Sticky footer
+
+7. Center my document
