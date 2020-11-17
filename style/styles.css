@@ -1,9 +1,10 @@
 table {
     border-spacing: 3px;
+    width: 100%;
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid white;
 }
 td, th {
     padding: 3px;
@@ -15,8 +16,91 @@ p, ul, ol, table {
 
 h1 {
     font-family: Verdana, Tahoma, sans-serif;
+    padding-left: 3px;
+    padding-top: 20px;
 }
 
 h2 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.centered > * {
+    flex: 1;
+}
+
+.centered {
+    display: flex;
+    max-width: 50%;
+    margin: 0 auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    background-color: silver;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+img {
+    align-self: center;
+}
+
+body {
+    background-image: url(../img/mountains-5727541_1920.jpg);
+    color: white;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    background-color: grey;
+    margin: 0px;
+
+}
+
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+nav {
+    top: 0;
+    position: fixed;
+    width: 100%;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration:  none;
+}
+
+nav ul li a:hover {
+    background-color: #111;
+  }
+
+.active {
+    background-color: #4CAF50;
+}
+
+section {
+    font-size: 32px;
+    padding: 25% 3px;
+}
+
+#section1 {
+    font-size: 32px;
+    padding: 0;
 }
