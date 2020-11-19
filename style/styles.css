@@ -62,7 +62,7 @@ html, body {
     margin: 0px;
 }
 
-/*Color scheme for Nav bar came from https://www.w3schools.com/css/css_navbar_horizontal.asp*/
+/*Color scheme for Nav & Footer bar came from https://www.w3schools.com/css/css_navbar_horizontal.asp*/
 
 nav {
     top: 0;
@@ -80,6 +80,23 @@ nav ul {
 
 nav ul li {
     float: left;
+}
+
+footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+footer div {
+    margin: 0%;
+    padding: 0%;
+    overflow: hidden;
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 14px 16px;
 }
 
 nav ul li a {
