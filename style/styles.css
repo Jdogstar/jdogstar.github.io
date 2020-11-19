@@ -38,6 +38,7 @@ h2 {
     flex-direction: column;
     justify-content: center;
     padding-top: 20px;
+    padding-bottom: 10rem;
 }
 
 img {
@@ -60,6 +61,8 @@ html, body {
     height: 100%;
     margin: 0px;
 }
+
+/*Color scheme for Nav bar came from https://www.w3schools.com/css/css_navbar_horizontal.asp*/
 
 nav {
     top: 0;

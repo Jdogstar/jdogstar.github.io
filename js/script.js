@@ -1,33 +1,17 @@
+//Code came/learned from user David @ https://stackoverflow.com/users/5247200/david
+//Code was found and modified from https://stackoverflow.com/questions/32395988/highlight-menu-item-when-scrolling-down-to-section
+//These have been listed in compliance with stackoverflow's copyright and attribution necessary for using code. Non commercial product.
+
 // cache the navigation links 
-var $navigationLinks = document.querySelectorAll('nav > ul > li > a');
+var $navLinks = document.querySelectorAll('nav > ul > li > a');
 // cache (in reversed order) the sections
 var $sections = document.getElementsByTagName('section');
 
 // map each section id to their corresponding navigation link
-var sectionIdTonavigationLink = {};
+var sectionNavLink = {};
 for (var i = $sections.length-1; i >= 0; i--) {
 	var id = $sections[i].id;
-	sectionIdTonavigationLink[id] = document.querySelectorAll('nav > ul > li > a[href=\\#' + id + ']') || null;
-}
-
-// throttle function, enforces a minimum time interval
-function throttle(fn, interval) {
-	var lastCall, timeoutId;
-	return function () {
-		var now = new Date().getTime();
-		if (lastCall && now < (lastCall + interval) ) {
-			// if we are inside the interval we wait
-			clearTimeout(timeoutId);
-			timeoutId = setTimeout(function () {
-				lastCall = now;
-				fn.call();
-			}, interval - (now - lastCall) );
-		} else {
-			// otherwise, we directly call the function 
-			lastCall = now;
-			fn.call();
-		}
-	};
+	sectionNavLink[id] = document.querySelectorAll('nav > ul > li > a[href=\\#' + id + ']') || null;
 }
 
 function getOffset( el ) {
@@ -43,7 +27,7 @@ function getOffset( el ) {
 
 function highlightNavigation() {
 	// get the current vertical position of the scroll bar
-	var scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+	var scrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
 	// iterate the sections
 	for (var i = $sections.length-1; i >= 0; i--) {
@@ -52,25 +36,25 @@ function highlightNavigation() {
 		var sectionTop = getOffset(currentSection).top;
 
 	   // if the user has scrolled over the top of the section  
-		if (scrollPosition >= sectionTop - 250) {
+		if (scrollPos >= sectionTop - 250) {
 			// get the section id
 			var id = currentSection.id;
 			// get the corresponding navigation link
-			var $navigationLink = sectionIdTonavigationLink[id];
+			var $navLink = sectionNavLink[id];
 			// if the link is not active
-			if (typeof $navigationLink[0] !== 'undefined') {
-				if (!$navigationLink[0].classList.contains('active')) {
+			if (typeof $navLink[0] !== 'undefined') {
+				if (!$navLink[0].classList.contains('active')) {
 					// remove .active class from all the links
-					for (i = 0; i < $navigationLinks.length; i++) {
-						$navigationLinks[i].className = $navigationLinks[i].className.replace(/ active/, '');
+					for (i = 0; i < $navLinks.length; i++) {
+						$navLinks[i].className = $navLinks[i].className.replace(/ active/, '');
 					}
 					// add .active class to the current link
-					$navigationLink[0].className += (' active');
+					$navLink[0].className += (' active');
 				}
 			} else {
 					// remove .active class from all the links
-					for (i = 0; i < $navigationLinks.length; i++) {
-						$navigationLinks[i].className = $navigationLinks[i].className.replace(/ active/, '');
+					for (i = 0; i < $navLinks.length; i++) {
+						$navLinks[i].className = $navLinks[i].className.replace(/ active/, '');
 					}
 			}	
 			// we have found our section, so we return false to exit the each loop
@@ -79,4 +63,4 @@ function highlightNavigation() {
 	}
 }
 
-window.addEventListener('scroll',throttle(highlightNavigation,150));
+window.addEventListener('scroll',highlightNavigation);
